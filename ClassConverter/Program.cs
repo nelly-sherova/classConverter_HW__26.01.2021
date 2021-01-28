@@ -75,7 +75,31 @@ namespace ClassConverter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Вас приветствует класс Converter");
+            Console.ForegroundColor = ConsoleColor.White;
+            Converter cw = new Converter(11.13, 13.74, 0.154);
+            Console.Write("Введите вашу сумму: "); double.TryParse(Console.ReadLine(), out double sum);
+            Console.WriteLine("Введите наименование вашей купюры:");
+            Console.WriteLine("usd -> Доллар США");
+            Console.WriteLine("eur -> Евро");
+            Console.WriteLine("rub -> Рубль");
+            Console.WriteLine("som -> Сомони"); string v = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            cw.currencyExchangeRate();
+            Console.ForegroundColor = ConsoleColor.White;
+            if (v == "som")
+            {
+                Console.Write("Выберете в какую валюту хотите конвертировать свой сомони:\n(для доллара usd, для евро eur, для рубля rub): ");
+                string val = Console.ReadLine();
+                cw.val = val;
+            }
+            cw.value = v;
+            cw.n = sum;
+            
+            cw.Convert();
+            Console.ForegroundColor = ConsoleColor.White;
+            
         }
     }
 }
