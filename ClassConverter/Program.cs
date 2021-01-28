@@ -8,6 +8,8 @@ namespace ClassConverter
         private double eur;
         private double rub;
         public double n;
+        public string value;
+        public string val;
         public Converter(){}
         public Converter(double usd, double eur, double rub)
         {
@@ -46,6 +48,27 @@ namespace ClassConverter
             Console.WriteLine($"1 eur => {eur} som");
             Console.WriteLine($"1 rub => {rub} som");
 
+        }
+        public void Convert()
+        {
+            if (value == "usd") Console.WriteLine($"Ваша сумма в сомони: {UsdToSom()}");
+            else if (value == "eur") Console.WriteLine($"Ваша сумма в сомони: {EurToSom()}");
+            else if (value == "rub") Console.WriteLine($"Ваша сумма в сомони: {RubToSom()}");
+            else if (value == "som")
+            {
+                switch (val)
+                {
+                    case "usd": Console.WriteLine($"Ваша сумма в долларах: {SomToUsd()}");
+                    break;
+                    case "eur": Console.WriteLine($"Ваша сумма в долларах: {SomToEur()}");
+                    break;
+                    case "rub": Console.WriteLine($"Ваша сумма в долларах: {SomToRub()}");
+                    break;
+                    default: Console.WriteLine("Вы ввели неправильное обозначение для вашей валюты!");
+                    break;
+                }
+            }
+            else Console.WriteLine("Вы ввели неправильное обозначение для вашей валюты!");
         }
     }
     class Program
